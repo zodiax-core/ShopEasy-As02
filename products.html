@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShopEasy | Products</title>
+    <script>
+      (function () {
+        try {
+          const savedTheme = localStorage.getItem('shopEasyTheme');
+          if (savedTheme === 'dark') {
+            document.documentElement.classList.add('theme-dark');
+            document.body.classList.add('dark-theme');
+          }
+        } catch (error) {
+          console.log('Theme storage unavailable');
+        }
+      })();
+    </script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="main-nav container" aria-label="Main navigation">
+        <div class="brand"> <a href="index.html">ShopEasy</a></div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li>
+            <a href="cart.html" class="cart-link">
+              Cart
+              <span class="cart-badge" id="cart-count">0</span>
+            </a>
+          </li>
+          <li>
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme">
+              <span class="theme-label">Light</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container product-page">
+      <section class="section-block">
+        <h1>Our Products</h1>
+
+        <div class="filters">
+          <input
+            id="product-search"
+            type="search"
+            placeholder="Search products"
+            aria-label="Search products"
+          />
+
+          <select id="category-filter" aria-label="Filter by category">
+            <option value="all">All Categories</option>
+            <option value="electronics">Electronics</option>
+            <option value="fashion">Fashion</option>
+            <option value="home">Home</option>
+            <option value="books">Books</option>
+          </select>
+
+          <select id="sort-products" aria-label="Sort products">
+            <option value="default">Sort by</option>
+            <option value="low">Price: Low to High</option>
+            <option value="high">Price: High to Low</option>
+          </select>
+        </div>
+
+        <div id="status-message" class="status-message" aria-live="polite"></div>
+        <div id="product-grid" class="product-grid" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-wrap">
+        <p>© 2026 ShopEasy</p>
+        <p>Everyday essentials</p>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/store.js"></script>
+    <script src="js/ui.js"></script>
+  </body>
+</html>

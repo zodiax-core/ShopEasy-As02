@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShopEasy | Home</title>
+    <script>
+      (function () {
+        try {
+          const savedTheme = localStorage.getItem('shopEasyTheme');
+          if (savedTheme === 'dark') {
+            document.documentElement.classList.add('theme-dark');
+            document.body.classList.add('dark-theme');
+          }
+        } catch (error) {
+          console.log('Theme storage unavailable');
+        }
+      })();
+    </script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="main-nav container" aria-label="Main navigation">
+        <div class="brand"> <a href="index.html">ShopEasy</a></div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li>
+            <a href="cart.html" class="cart-link">
+              Cart
+              <span class="cart-badge" id="cart-count">0</span>
+            </a>
+          </li>
+          <li>
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme">
+              <span class="theme-label">Light</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero container">
+        <div class="hero-copy">
+          <p class="eyebrow">Welcome to ShopEasy</p>
+          <h1>Smart shopping for everyday essentials.</h1>
+          <p>
+            Discover quality products, great deals, and a clean online shopping experience
+            designed to be easy from browse to checkout.
+          </p>
+          <a class="btn btn-dark" href="products.html">Shop now</a>
+        </div>
+      </section>
+
+      <section class="container section-block">
+        <h2>Featured Products</h2>
+        <div class="featured-grid" id="featured-products"></div>
+      </section>
+
+      <section class="container section-block faq-section">
+        <h2>FAQ</h2>
+        <div class="faq-item">
+          <button class="faq-question" type="button">How quickly do orders ship?</button>
+          <div class="faq-answer">
+            <p>Most orders are dispatched within 24 to 48 hours and arrive within 3 to 7 days.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">Can I change my cart items?</button>
+          <div class="faq-answer">
+            <p>Yes. You can increase, decrease, or remove products from your cart before checkout.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">Do you offer returns?</button>
+          <div class="faq-answer">
+            <p>We offer returns on unused items within 14 days of delivery, subject to policy.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-wrap">
+        <p>© 2026 ShopEasy</p>
+        <p>Fast. Simple. Reliable.</p>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/store.js"></script>
+    <script src="js/ui.js"></script>
+  </body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShopEasy | Cart</title>
+    <script>
+      (function () {
+        try {
+          const savedTheme = localStorage.getItem('shopEasyTheme');
+          if (savedTheme === 'dark') {
+            document.documentElement.classList.add('theme-dark');
+            document.body.classList.add('dark-theme');
+          }
+        } catch (error) {
+          console.log('Theme storage unavailable');
+        }
+      })();
+    </script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="main-nav container" aria-label="Main navigation">
+        <div class="brand"><a href="index.html">ShopEasy</a></div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li>
+            <a href="cart.html" class="cart-link">
+              Cart
+              <span class="cart-badge" id="cart-count">0</span>
+            </a>
+          </li>
+          <li>
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme">
+              <span class="theme-label">Light</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container section-block">
+      <h1>Your Cart</h1>
+
+      <div class="cart-layout">
+        <div class="cart-table-wrap">
+          <table id="cart-table" class="cart-table">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <aside class="checkout-panel">
+          <h2>Cart Summary</h2>
+          <div class="total-row">
+            <span>Grand Total</span>
+            <strong id="grand-total">$0.00</strong>
+          </div>
+
+          <form id="checkout-form" class="checkout-form" novalidate>
+            <label>
+              Full name
+              <input id="full-name" name="fullName" type="text" required minlength="2" />
+              <span class="error-message"></span>
+            </label>
+
+            <label>
+              Email
+              <input id="email" name="email" type="email" required />
+              <span class="error-message"></span>
+            </label>
+
+            <label>
+              Phone
+              <input id="phone" name="phone" type="tel" required pattern="^[0-9+\-\s]{7,15}$" />
+              <span class="error-message"></span>
+            </label>
+
+            <label>
+              City
+              <select id="city" name="city" required>
+                <option value="">Select city</option>
+                <option value="Lahore">Lahore</option>
+                <option value="Karachi">Karachi</option>
+                <option value="Islamabad">Islamabad</option>
+                <option value="Peshawar">Peshawar</option>
+              </select>
+              <span class="error-message"></span>
+            </label>
+
+            <label>
+              Address
+              <textarea id="address" name="address" required minlength="10" rows="4"></textarea>
+              <span class="error-message"></span>
+            </label>
+
+            <button type="submit" class="btn btn-dark">Place Order</button>
+          </form>
+        </aside>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container footer-wrap">
+        <p>© 2026 ShopEasy</p>
+        <p>Ready for checkout</p>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/store.js"></script>
+    <script src="js/ui.js"></script>
+  </body>
+</html>
